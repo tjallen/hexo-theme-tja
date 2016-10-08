@@ -1,27 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Head tag -->
-<%- partial('_partial/head') %>
-
-<body>
-
+  <%- partial('_partial/head') %>
+  <body>
     <div id="wrapper">
-
-        <%- partial('_partial/header') %>
-
-          <div class="inner">
-
-              <!-- Main Content -->
-              <%- body %>
-
-          </div>
-
-        <%- partial('_partial/footer.ejs') %>
+      <%- partial('_partial/header') %>
+      <div class="inner">
+        <!-- Main -->
+        <%- body %>
+      </div>
+      <%- partial('_partial/footer.ejs') %>
     </div>
-
     <%- partial('_partial/body-end') %>
-
-</body>
-
+  </body>
 </html>
