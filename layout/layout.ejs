@@ -4,10 +4,12 @@
   <body>
     <div id="wrapper">
       <%- partial('_partial/header') %>
-      <div class="inner">
+      <%- partial('_partial/hero') %>
         <!-- Main -->
-        <%- body %>
-      </div>
+        <div id="main">
+          <%- body %>
+        </div>
+        
       <%- partial('_partial/footer.ejs') %>
     </div>
     <%- partial('_partial/body-end') %>

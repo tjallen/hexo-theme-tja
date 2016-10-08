@@ -1,28 +1,25 @@
-<%- partial('_partial/hero') %>
-<div id="main">
-  <section id="intro">
-    <div class="section-content">
-      <p><%- theme.intro %></p>
-    </div>
-  </section>
+<section id="intro">
+  <div class="section-content">
+    <p><%- theme.intro %></p>
+  </div>
+</section>
 
-  <section id="work">
-    <div class="section-content">
-      <h2>Work</h2>
-      <% page.posts.forEach(function(item, index){ %>
-        <%- partial('_partial/article-index', {item: item, index: index}) %>
-      <% }); %>
-    <%- partial('_partial/pagination') %>
-    </div>
-  </section>
+<section id="work">
+  <div class="section-content">
+    <h2>Work</h2>
+    <% page.posts.forEach(function(item, index){ %>
+      <%- partial('_partial/article-index', {item: item, index: index}) %>
+    <% }); %>
+  <%- partial('_partial/pagination') %>
+  </div>
+</section>
 
-  <section id="contact">
-    <div class="section-content">
-      <h2>Contact</h2>
-      <p>Interested in working together? Drop me an email below and I'll get back to you as soon as possible. Cheers!</p>
-      <div class="cta">
-        <a href="mailto:thomwork@gmail.com"><button>Email me</button></a>
-      </div>
+<section id="contact">
+  <div class="section-content">
+    <h2>Contact</h2>
+    <p>Interested in working together? Drop me an email below and I'll get back to you as soon as possible. Cheers!</p>
+    <div class="cta">
+      <a href="mailto:thomwork@gmail.com"><button>Email me</button></a>
     </div>
-  </section>
-</>
+  </div>
+</section>
