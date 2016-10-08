@@ -1,4 +1,4 @@
-
+<%- partial('_partial/hero', { data: item.title }) %>
 <% if(theme.show_dates) { %>
     <h1 class="title"><%- item.title || theme.default_post_title || "Untitled" %></h1>
     <div class="meta">
