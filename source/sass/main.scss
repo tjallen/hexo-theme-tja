@@ -53,6 +53,15 @@ div#main {
   }
 }
 
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+
+section {
+  @include clearfix;
+}
+
 div.section-content {
   margin-top: 40px;
   @include span-columns(12);
@@ -191,57 +200,12 @@ header {
 }
 
 section#work {
-  div.work-item {
-    @include clearfix;
-    position: relative;
-    padding: 6px 0;
-    border-top: 1px solid $md-grey-300;
-    width: 100%;
-    display: block;
-    & > * {
-      display: inline-block;
-      margin: 10px 0 0 0;
-    }
-    div.work-info {
-      width: 75%;
-    }
-    div.work-icon {
-      float: left;
-    }
-    div.work-icon, div.work-repo {
-      text-align: center;
-      img {
-        height: 32px;
-        width: 32px;
-        border-radius: 36px;
-        margin-top: 2px;
-        border: 3px solid $link;
-        &:hover {
-          border-color: $link-fb;
-        }
-      }
-    }
-    div.work-repo {
-      position: absolute;
-      right: 5px;
-      top: 0;
-      @include query('lrg') {
-        top: 5px;
-      }
-      .icon-github {
-        @include query('lrg') {
-          height: 30px;
-          width: 30px;
-        }
-      }
-    }
-    dl {
-      line-height: 1.3rem;
-    }
-    dd.tools {
-      font-size: rem(12);
-      list-style-type: none;
-      color: $md-grey-600;
+  @include outer-container;
+  div.hexo-item {
+    @include span-columns(3);
+    @include omega(5n);
+    h4 {
+      margin-top: 0;
     }
   }
 }
