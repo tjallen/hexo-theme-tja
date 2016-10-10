@@ -2,16 +2,14 @@
 <html lang="en">
   <%- partial('_partial/head') %>
   <body>
-    <div id="wrapper">
+    <div id="upper">
       <%- partial('_partial/header') %>
       <%- partial('_partial/hero') %>
-        <!-- Main -->
-        <div id="main">
-          <%- body %>
-        </div>
-        
-      <%- partial('_partial/footer.ejs') %>
     </div>
+    <div id="main">
+      <%- body %>
+    </div>
+    <%- partial('_partial/footer.ejs') %>
     <%- partial('_partial/body-end') %>
   </body>
 </html>
