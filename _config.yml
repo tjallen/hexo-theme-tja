@@ -15,7 +15,7 @@ intro: I'm Thom Allen, a freelance front-end developer based in London. I create
 default_post_title: Untitled
 
 # Default post cover index page (Recommended)
-default_cover_index: "http://placehold.it/100x100"
+default_cover_index: /images/blur-tilt.jpg
 
 # Default post cover index page (Optional)
 default_cover_detail:
