@@ -212,13 +212,20 @@ header {
   }
 }
 
-section#work {
-  @include outer-container;
-  div.hexo-item {
-    @include span-columns(4);
-    @include omega(4n);
-    h4 {
-    }
+.gallery {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+div.gallery-item {
+  flex: 1 1 220px;
+  width: 32%;
+  background-size: cover;
+  margin: 10px;
+  h4 {
   }
 }
 
