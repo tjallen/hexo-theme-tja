@@ -225,7 +225,10 @@ div.gallery-item {
   width: 32%;
   background-size: cover;
   margin: 10px;
+  align-items: center;
+  justify-content: center;
   h4 {
+    margin: 0;
   }
 }
 
