@@ -10,9 +10,9 @@
 
 // import later - _cfg
 $breakpoints: (
-  sml: 30em,
-  med: 40em,
-  lrg: 60em
+  sml: 460px,
+  med: 700px,
+  lrg: 1000px
 );
 
 // import later? - _functions
@@ -117,10 +117,7 @@ hr {
 
 h2 {
   @include query('med') {
-    font-size: rem(28);
-  }
-  @include query('lrg') {
-    font-size: rem(32);
+    font-size: rem(30);
   }
 }
 
@@ -198,8 +195,12 @@ header {
     margin-top: 15px;
     line-height: 1.5rem;
     @include query('med') {
-      font-size: rem(30);
+      font-size: rem(26);
       line-height: 2rem;
+    }
+    @include query('lrg') {
+      font-size: rem(34);
+      line-height: 2.6rem;;
     }
   }
 }
@@ -214,21 +215,36 @@ header {
 
 .gallery {
   text-align: center;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  flex-wrap: wrap;
+  @include query('med') {
+    display: flex;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 
 div.gallery-item {
-  flex: 1 1 220px;
-  width: 32%;
+  display: block;
   background-size: cover;
-  margin: 10px;
-  align-items: center;
-  justify-content: center;
+  margin: 0 0 30px 0;
+  @include query('sml') {
+    display: inline-block;
+    width: 45%;
+    margin: 3px;
+  }
+  @include query('med') {
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 30%;
+    margin: 10px;
+  }
   h4 {
     margin: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 15px;
   }
 }
 
