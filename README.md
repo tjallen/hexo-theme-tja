@@ -20,3 +20,8 @@ git clone https://github.com/tjallen/hexo-theme-tja themes/tja
 cd themes/tja
 npm install
 ```
+
+Enable this theme in your config.yml:
+```
+theme: tja
+```
