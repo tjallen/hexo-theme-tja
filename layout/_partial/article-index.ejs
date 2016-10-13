@@ -1,12 +1,19 @@
 <%
   var cssClass = "style" + (index % 12 + 1);
 %>
-
   <div class="gallery-item">
-    <article class="<%- cssClass %>">
-      <a href="<%- config.root %><%- item.path %>">
-        <img class="img-responsive" src="<%- item.thumb || theme.default_image_thumb %>" alt="" />
-        <h4><%- item.title || theme.default_post_title || "Untitled" %></h4>
-      </a>
-    </article>
+    <div class="overlay overlay-top">
+      <% if (item.pkg) { %>
+        <span class="top-item"><a href="google.com">NPM</a></span>
+      <% } %>
+      <% if (item.repo) { %>
+        <span class="top-item"><a href="google.com">G</a></span>
+      <% } %>
+    </div>
+    <a href="<%- config.root %><%- item.path %>">
+    <img class="img-responsive" src="<%- item.thumb || theme.default_image_thumb %>" alt="" />
+    <div class="overlay overlay-bottom">
+      <h4><%- item.title || theme.default_post_title || "Untitled" %></h4>
+    </div>
+    </a>
   </div>
