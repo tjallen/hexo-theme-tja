@@ -21,8 +21,7 @@
   },
   "homepage": "https://github.com/tjallen/hexo-theme-tja#readme",
   "dependencies": {
-    "bourbon": "^4.2.7",
-    "bourbon-neat": "^1.8.0",
+    "bootstrap": "^4.0.0-alpha.4",
     "material-colors": "^1.1.1"
   }
 }

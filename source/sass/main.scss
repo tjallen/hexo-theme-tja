@@ -4,16 +4,54 @@
 
 @import '../../node_modules/material-colors/dist/colors.scss';
 
-@import '../../node_modules/bourbon/app/assets/stylesheets/_bourbon.scss';
-@import '../../node_modules/bourbon-neat/app/assets/stylesheets/neat.scss';
-@import 'mixins';
 
+// @import '../../node_modules/bourbon-neat/app/assets/stylesheets/neat.scss';
+// override bootstrap default variables
+$enable-shadows: true;
+$enable-transitions: true;
+// bootstrap variables, mixins and grid only
+@import '../../node_modules/bootstrap/scss/_variables.scss';
+@import '../../node_modules/bootstrap/scss/_mixins.scss';
+@import '../../node_modules/bootstrap/scss/_grid.scss';
+
+// from mixins.scss
 // import later - _cfg
 $breakpoints: (
   sml: 460px,
   med: 700px,
   lrg: 1000px
 );
+
+@mixin query($breakpoint) { 
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+			@content;
+		}
+	}
+	@else {
+		@warn "No value from `#{$breakpoint}`. Is it in the map? ";
+	}
+}
+
+@mixin listreset {
+	-webkit-margin-before: 0;
+	-webkit-margin-after: 0;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
+	-webkit-padding-start: 0;
+	margin-left: 0; // ie
+	padding-left: 0; // ff
+}
+
+// @mixin box-shadow( $horiz : .5em , $vert : .5em , $blur : 0 , $spread : 0 , $color : #000000 ){
+//   -webkit-box-shadow: $horiz $vert $blur $spread $color;
+//   -moz-box-shadow: $horiz $vert $blur $spread $color;
+//   box-shadow: $horiz $vert $blur $spread $color;
+// }
+// 
+@mixin text-shadow($x: 1px, $y: 1px, $r: 1px, $c: rgba(45,45,45,.35)){
+	text-shadow: $x $y $r $c;
+}
 
 // import later? - _functions
 @function headings($from:1, $to:6) {
@@ -33,6 +71,11 @@ $overlay: rgba(33, 33, 33, 0.35);
 
 html {
   height: 100%;
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
 }
 
 body {
@@ -60,10 +103,10 @@ div#upper {
 div#main {
   flex: 1 0 auto;
   padding: 0 10px;
-  @include outer-container;
-  @include query('med') {
-    padding: 0 25px;
-  }
+  // @include outer-container;
+  // @include query('med') {
+  //   padding: 0 25px;
+  // }
   margin-bottom: 60px;
 }
 
@@ -78,7 +121,7 @@ section {
 
 div.section-content {
   margin-top: 40px;
-  @include span-columns(12);
+  // @include span-columns(12);
   @include clearfix;
   h2:nth-of-type(1) {
     margin-top: 0;
@@ -126,7 +169,7 @@ h2 {
 a {
   color: $link;
   text-decoration: none;
-  @include transition(all .1s ease-in-out);
+  // @include transition(all .1s ease-in-out);
   &:hover {
     color: lighten($link, 10%);
   }
@@ -170,8 +213,8 @@ header {
 }
 
 .hero {
-  @include linear-gradient(to top left, $md-indigo-300, $md-red-300, $fallback: $bg);
-  //background-color: $bg;
+  // @include linear-gradient(to top left, $md-indigo-300, $md-red-300, $fallback: $bg);
+  background-color: $bg;
   height: 250px;
   width: 100%;
   h1,h2 {
@@ -197,14 +240,14 @@ header {
     padding: 0 10px;
     margin-top: 15px;
     line-height: 1.5rem;
-    @include query('med') {
-      font-size: rem(26);
-      line-height: 2rem;
-    }
-    @include query('lrg') {
-      font-size: rem(34);
-      line-height: 2.6rem;;
-    }
+    // @include query('med') {
+    //   font-size: rem(26);
+    //   line-height: 2rem;
+    // }
+    // @include query('lrg') {
+    //   font-size: rem(34);
+    //   line-height: 2.6rem;;
+    // }
   }
 }
 
@@ -216,23 +259,31 @@ header {
   }
 }
 
+#work {
+  @include make-container();
+  .gallery {
+    @include make-row();
+  }
+}
+
 .gallery {
   text-align: left;
-  @include outer-container;
 }
 
 div.gallery-item {
-  @include box-shadow(0, 1px, 1px, 1px, $md-grey-400);
+  @include make-col-ready();
+  @media(min-width:600px) {
+    @include make-col(6);
+  }
+  @media(min-width:900px) {
+    @include make-col(4);
+  }
   img {
     display: block; // prevent gap between elements from inline-block
   }
   margin-bottom: 30px;
   background-size: cover;
   position: relative;
-  @include query('med') {
-    @include span-columns(4);
-    @include omega(3n);
-  }
   .overlay {
     width: 100%;
   }
@@ -287,16 +338,13 @@ section#contact {
   div.cta {
     text-align: center;
     button {
-      @include transition(all .1s ease-in-out);
       background-color: $link;
       color: #fff;
       border: none;
       padding: 5px 15px;
       text-transform: uppercase;
       font-weight: normal;
-      @include box-shadow(0, 1px, 1px, 1px, $md-grey-600);
       &:hover {
-        @include box-shadow(0, 1px, 2px, 1px, $md-grey-800);
         cursor: pointer;
       }
     }
