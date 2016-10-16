@@ -100,11 +100,9 @@ body {
 }
 
 div#upper {
-  flex: 0 0 auto;
 }
 
 div#main {
-  flex: 1 0 auto;
   margin-bottom: 60px;
   margin-left: auto;
   margin-right: auto;
@@ -164,6 +162,12 @@ hr {
   color: $md-grey-800;
 }
 
+h3.label {
+  font-size: rem(14);
+  text-transform: uppercase;
+  margin: 0;
+}
+
 a {
   color: $link;
   text-decoration: none;
@@ -173,13 +177,45 @@ a {
   }
 }
 
-ul, ol, dl {
+button {
+  background-color: $link;
+  display: block;
+  clear: both;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  font-weight: normal;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+  font-size: rem(13);
+  @include mq(sm) {
+    font-size: rem(16);
+  }
+  @include mq(md) {
+    font-size: rem(17);
+    display: inline-block;
+  }
+}
+
+ul, ol, dl, li {
   @include listreset;
-  list-style-type: square;
+  list-style-type: none;
   margin: 0 0 10px 0;
   dd {
     @include listreset;
   }
+}
+
+li.inline {
+  display: inline;
+}
+
+li.tags a {
+  color: $md-grey-500;
+  margin-right: 20px;
 }
 
 p {
@@ -335,22 +371,17 @@ div.gallery-item {
 section#contact {
   div.cta {
     text-align: center;
-    button {
-      background-color: $link;
-      color: #fff;
-      border: none;
-      padding: 10px 15px;
-      text-transform: uppercase;
-      font-weight: normal;
-      &:hover {
-        cursor: pointer;
-      }
-    }
   }
 }
 
+// page
+
+.section-meta {
+  padding-bottom: 20px;
+  border-bottom: 1px solid $md-grey-300;
+}
+
 footer {
-  flex: 0 0 auto;
   text-align: center;
   padding: 20px;
   background-color: $bg;

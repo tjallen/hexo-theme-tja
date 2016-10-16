@@ -3,6 +3,25 @@
     <% if(item.image_post || theme.default_image_post) { %>
       <img class="img-responsive" src="<%- item.image_post || theme.default_image_post %>" alt="" />
     <% } %>
+    
+    <div class="section-meta">
+      <h3 class="label">Links</h3>
+      <% if (item.page_links !== undefined) { %>
+        <% if (item.page_links.length > 0) { %>
+          <% item.page_links.forEach(function(item, index){ %>
+            <a href="<%= item.link_url %>"><button><%= item.link_text %></button></a>
+          <% }); %>
+        <% } %>
+      <% } %>
+      <% if (item.repo !== undefined) { %>
+        <a href="<%= item.repo %>"><button>Github repo</button>
+      <% } %>
+      <% if (item.pkg !== undefined) { %>
+        <a href="<%= item.pkg %>"><button>NPM package</button>
+      <% } %>
+      <h3 class="label">Tags</h3>
+      <%- partial('article-tags') %>
+    </div>
 
     <%- item.content %>
 
@@ -10,6 +29,6 @@
       <%- partial('gallery') %>
     <% } %>
 
-    <%- partial('article-tags') %>
+    <a href="<%- config.root %>" title="Back to homepage">Back to homepage</a>
   </div>
 </section>

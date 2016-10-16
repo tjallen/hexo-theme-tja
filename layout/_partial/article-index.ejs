@@ -3,7 +3,7 @@
 %>
   <div class="gallery-item">
     <% if (item.casestudy === undefined) { %>
-    <a href="<%- item.url %>">
+    <a href="<%- item.index_url %>">
     <% } else { %>
     <a href="<%- config.root %><%- item.path %>">
     <% } %>
@@ -17,7 +17,7 @@
       <hr />
       <div class="gallery-item-actions">
         <% if (item.casestudy === undefined) { %>
-          <a href="<%- item.url %>" target='_blank' rel="noopener noreferrer">Project site &rarr;</a>
+          <a href="<%- item.index_url %>" target='_blank' rel="noopener noreferrer">Project site &rarr;</a>
         <% } else { %>
           <a href="<%- config.root %><%- item.path %>">Read more</a>
         <% } %>
