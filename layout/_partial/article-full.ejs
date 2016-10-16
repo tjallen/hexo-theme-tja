@@ -1,15 +1,15 @@
-<div class="section-content">
-  <% if(item.image_post || theme.default_image_post) { %>
-    <img class="img-responsive" src="<%- item.image_post || theme.default_image_post %>" alt="" />
-  <% } %>
+<section id="work">
+  <div class="section-content">
+    <% if(item.image_post || theme.default_image_post) { %>
+      <img class="img-responsive" src="<%- item.image_post || theme.default_image_post %>" alt="" />
+    <% } %>
 
-  <%- item.content %>
+    <%- item.content %>
 
-  <% if (item.photos && item.photos.length){ %>
-    <%- partial('gallery') %>
-  <% } %>
+    <% if (item.photos && item.photos.length){ %>
+      <%- partial('gallery') %>
+    <% } %>
 
-  <%- partial('article-tags') %>
-</div>
-
-
+    <%- partial('article-tags') %>
+  </div>
+</section>

@@ -11,22 +11,23 @@ $enable-transitions: true;
 @import '../../node_modules/bootstrap/scss/_mixins.scss';
 @import '../../node_modules/bootstrap/scss/_grid.scss';
 
-/*
-we now using bootstrap's breakpoints, which are:
-xs: 0,
-sm: 544px,
-md: 768px,
-lg: 992px,
-xl: 1200px
-*/
-@mixin query($breakpoint) { 
-  @if map-has-key($grid-breakpoints, $breakpoint) {
-    @media (min-width: #{map-get($grid-breakpoints, $breakpoint)}) {
-      @content;
-    }
+// bootstrap breakpoints for reference
+// $grid-breakpoints: (
+//   xs: 0,
+//   sm: 544px,
+//   md: 768px,
+//   lg: 992px,
+//   xl: 1200px
+// );
+
+@mixin mq($mq-breakpoint, $mq-breakpoints: $grid-breakpoints) {
+  // If $mq-breakpoint is a key that exists in
+  // $mq-breakpoints, get and use the value
+  @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+    $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
   }
-  @else {
-    @warn "No value from `#{$breakpoint}`. Is it in the map? ";
+  @media screen and (min-width: #{$mq-breakpoint}) {
+    @content;
   }
 }
 
@@ -57,6 +58,11 @@ xl: 1200px
   } @else {
     @return 'h#{$from},' + headings($from+1, $to);
   }
+}
+
+@function rem($size) {
+  $remSize: $size / 16;
+  @return #{$remSize}rem;
 }
 
 // color _variables
@@ -99,12 +105,10 @@ div#upper {
 
 div#main {
   flex: 1 0 auto;
-  padding: 0 10px;
-  // @include outer-container;
-  // @include query('md') {
-  //   padding: 0 25px;
-  // }
   margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1330px;
 }
 
 .img-responsive {
@@ -116,9 +120,12 @@ section {
   @include clearfix;
 }
 
+#intro, #work, #contact {
+  @include make-container();
+}
+
 div.section-content {
   margin-top: 40px;
-  // @include span-columns(12);
   @include clearfix;
   h2:nth-of-type(1) {
     margin-top: 0;
@@ -223,22 +230,22 @@ header {
     font: {
       weight: 700;
       size: rem(18);
-      weight: 700;
     }
   }
   h2 {
-    font-size: rem(20);
+    font-size: rem(18);
     padding: 0 10px;
     margin-top: 15px;
     line-height: 1.5rem;
-    // @include query('md') {
-    //   font-size: rem(26);
-    //   line-height: 2rem;
-    // }
-    // @include query('lrg') {
-    //   font-size: rem(34);
-    //   line-height: 2.6rem;;
-    // }
+    @include mq(sm) {
+      font-size: rem(22);
+    }
+    @include mq(md) {
+      font-size: rem(26);
+    }
+    @include mq(lg) {
+      font-size: rem(30);
+    }
   }
 }
 
@@ -263,10 +270,10 @@ header {
 
 div.gallery-item {
   @include make-col-ready();
-  @media(min-width:600px) {
+  @include mq(sm) {
     @include make-col(6);
   }
-  @media(min-width:900px) {
+  @include mq(lg) {
     @include make-col(4);
   }
   img {
@@ -313,7 +320,7 @@ div.gallery-item {
   }
 }
 
-section#skills {
+/*section#skills {
   dd {
     line-height: rem(22);
   }
@@ -323,7 +330,7 @@ section#skills {
     text-transform: uppercase;
     margin: 15px 0 -10px;
   }
-}
+}*/
 
 section#contact {
   div.cta {
@@ -332,7 +339,7 @@ section#contact {
       background-color: $link;
       color: #fff;
       border: none;
-      padding: 5px 15px;
+      padding: 10px 15px;
       text-transform: uppercase;
       font-weight: normal;
       &:hover {
