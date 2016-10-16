@@ -17,9 +17,9 @@
       <hr />
       <div class="gallery-item-actions">
         <% if (item.casestudy === undefined) { %>
-          <a href="<%- item.url %>">Project site &rarr;</a>
+          <a href="<%- item.url %>" target='_blank' rel="noopener noreferrer">Project site &rarr;</a>
         <% } else { %>
-          <a href="<%- config.root %><%- item.path %>">Read more &rarr;</a>
+          <a href="<%- config.root %><%- item.path %>">Read more</a>
         <% } %>
         <div class="icons">
           <% if (item.pkg) { %>
