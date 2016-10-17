@@ -1,5 +1,7 @@
 <div class="hero valign">
   <div class="valign-inner">
-    <h2><%= path === 'index.html' ? theme.heroslogan : page.title %></h2>
+    <% if (path === 'index.html') { %>
+      <h2><%= theme.heroslogan %></h2>
+    <% } %>
   </div>
 </div>
