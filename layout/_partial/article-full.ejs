@@ -14,27 +14,30 @@
         <% if (item.page_links !== undefined) { %>
           <% if (item.page_links.length > 0) { %>
             <% item.page_links.forEach(function(item, index){ %>
-              <a href="<%= item.link_url %>"><%= item.link_text %></a>
+              <a href="<%= item.link_url %>"><button><%= item.link_text %></button></a>
             <% }); %>
           <% } %>
         <% } %>
         <% if (item.repo !== undefined) { %>
-          <a href="<%= item.repo %>">Github repo</a>
+          <a href="<%= item.repo %>"><button>Github repo</button></a>
         <% } %>
         <% if (item.pkg !== undefined) { %>
-          <a href="<%= item.pkg %>">NPM package</a>
+          <a href="<%= item.pkg %>"><button>NPM package</button></a>
         <% } %>
         <h3 class="label">Tags</h3>
         <%- partial('article-tags') %>
       </div>
 
       <%- item.content %>
-
+    
       <% if (item.photos && item.photos.length){ %>
+        <h3 class="label">Gallery</h3>
         <%- partial('gallery') %>
       <% } %>
 
-      <a href="<%- config.root %>" title="Back to homepage">Back to homepage</a>
+      <div class="centeredbutton-wrap">
+        <a href="<%- config.root %>" title="Back to homepage"><button class="btn btn-clear">Back to homepage</button></a>
+      </div>
     </div>
   </section>
   </div>
