@@ -10,6 +10,10 @@
       <% } %>
       
       <div class="section-meta">
+        <% if (item.agency !== undefined) { %>
+        <h3 class="label">Agency</h3>
+        <a href="<%= item.agency_url%>"><%= item.agency %></a>
+        <% } %>
         <h3 class="label">Links</h3>
         <% if (item.page_links !== undefined) { %>
           <% if (item.page_links.length > 0) { %>
@@ -36,7 +40,7 @@
       <% } %>
 
       <div class="centeredbutton-wrap">
-        <a href="<%- config.root %>" title="Back to homepage"><button class="btn btn-clear">Back to homepage</button></a>
+        <a href="<%- config.root %>" title="Back to index"><button class="btn btn-clear">Back to index</button></a>
       </div>
     </div>
   </section>
