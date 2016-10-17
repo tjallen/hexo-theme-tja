@@ -1,34 +1,41 @@
-<section id="work">
-  <div class="section-content">
-    <% if(item.image_post || theme.default_image_post) { %>
-      <img class="img-responsive" src="<%- item.image_post || theme.default_image_post %>" alt="" />
-    <% } %>
-    
-    <div class="section-meta">
-      <h3 class="label">Links</h3>
-      <% if (item.page_links !== undefined) { %>
-        <% if (item.page_links.length > 0) { %>
-          <% item.page_links.forEach(function(item, index){ %>
-            <a href="<%= item.link_url %>"><button><%= item.link_text %></button></a>
-          <% }); %>
+<section id="page">
+  <div class="post-page">
+    <div class="section-content">
+      <div class="row">
+        
+      </div>
+      <h2><%= page.title %></h2>
+      <% if(item.image_post || theme.default_image_post) { %>
+        <img class="img-responsive" src="<%- item.image_post || theme.default_image_post %>" alt="" />
+      <% } %>
+      
+      <div class="section-meta">
+        <h3 class="label">Links</h3>
+        <% if (item.page_links !== undefined) { %>
+          <% if (item.page_links.length > 0) { %>
+            <% item.page_links.forEach(function(item, index){ %>
+              <a href="<%= item.link_url %>"><%= item.link_text %></a>
+            <% }); %>
+          <% } %>
         <% } %>
+        <% if (item.repo !== undefined) { %>
+          <a href="<%= item.repo %>">Github repo</a>
+        <% } %>
+        <% if (item.pkg !== undefined) { %>
+          <a href="<%= item.pkg %>">NPM package</a>
+        <% } %>
+        <h3 class="label">Tags</h3>
+        <%- partial('article-tags') %>
+      </div>
+
+      <%- item.content %>
+
+      <% if (item.photos && item.photos.length){ %>
+        <%- partial('gallery') %>
       <% } %>
-      <% if (item.repo !== undefined) { %>
-        <a href="<%= item.repo %>"><button>Github repo</button>
-      <% } %>
-      <% if (item.pkg !== undefined) { %>
-        <a href="<%= item.pkg %>"><button>NPM package</button>
-      <% } %>
-      <h3 class="label">Tags</h3>
-      <%- partial('article-tags') %>
+
+      <a href="<%- config.root %>" title="Back to homepage">Back to homepage</a>
     </div>
-
-    <%- item.content %>
-
-    <% if (item.photos && item.photos.length){ %>
-      <%- partial('gallery') %>
-    <% } %>
-
-    <a href="<%- config.root %>" title="Back to homepage">Back to homepage</a>
+  </section>
   </div>
-</section>
+
