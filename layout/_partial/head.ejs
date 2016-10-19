@@ -14,6 +14,13 @@
 <% if (config.author){ %>
   <meta name="author" content="<%= config.author %>">
 <% } %>
+<% if (config.favicon){ %>
+  <link rel="icon" href="<%= config.favicon %>" type="image/x-icon" />
+<% } %>
+<% if (config.appletouchicon){ %>
+  <link rel="apple-touch-icon" href="<%= config.appletouchicon %>">
+<% } %>
+
 <%
   var title = [];
   if (page.current > 1) title.push(__('page', page.current));
