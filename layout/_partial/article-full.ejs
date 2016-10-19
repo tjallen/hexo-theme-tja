@@ -18,7 +18,7 @@
         <% if (item.page_links !== undefined) { %>
           <% if (item.page_links.length > 0) { %>
             <% item.page_links.forEach(function(item, index){ %>
-              <a href="<%= item.link_url %>"><button><%= item.link_text %></button></a>
+              <a href="<%= item.link_url %>" target='_blank' rel="noopener noreferrer"><button><%= item.link_text %></button></a>
             <% }); %>
           <% } %>
         <% } %>
