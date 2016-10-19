@@ -22,8 +22,9 @@
 %>
 
 <section class="archives">
+  <h2>Archives</h2>
   <% if(title) { %>
-    <div class="archive-title"><%- title %></div>
+    <div class="archive-title"><h3><%- title %></h3></div>
   <% } %>
   <ul class="archive-list">
     <% postList.each(function(item){ %>
