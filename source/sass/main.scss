@@ -190,7 +190,7 @@ button {
   width: 100%;
   @include box-shadow;
   &:hover {
-    @include box-shadow($horiz: 1px, $vert: 6px, $radius: 9px, $spread: 4px);
+    @include box-shadow($horiz: 0px, $vert: 10px, $radius: 20px);
   }
   @include mq(sm) {
     font-size: rem(14);
@@ -410,6 +410,11 @@ h3.label {
 }
 
 .section-meta {
+  button {
+    @include mq(sm) {
+      margin-right: 5px;
+    }
+  }
 }
 
 iframe {
