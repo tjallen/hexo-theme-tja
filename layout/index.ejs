@@ -1,12 +1,19 @@
 <section id="intro">
   <div class="section-content">
-    <p><%- theme.intro %></p>
+    <% if (theme.intro_title) { %>
+    <h2><%= theme.intro_title %></h2>
+    <% } %>
+    <% if (theme.intro_copy) { %>
+    <p><%- theme.intro_copy %></p>
+    <% } %>
   </div>
 </section>
 
 <section id="work">
   <div class="section-content">
-    <h2>Work</h2>
+    <% if (theme.posts_title) { %>
+    <h2><%= theme.posts_title %></h2>
+    <% } %>
     <div class="gallery">
       <% page.posts.forEach(function(item, index){ %>
         <%- partial('_partial/article-index', {item: item, index: index}) %>
@@ -18,10 +25,14 @@
 
 <section id="contact">
   <div class="section-content">
-    <h2>Contact</h2>
-    <p>Interested in working together? Drop me an email below and I'll get back to you as soon as possible. Cheers!</p>
+    <% if (theme.outro_title) { %>
+    <h2><%= theme.outro_title %></h2>
+    <% } %>
+    <% if (theme.outro_copy) { %>
+    <p><%= theme.outro_copy %></p>
+    <% } %>
     <div class="centeredbutton-wrap">
-      <a href="mailto:thomwork@gmail.com"><button>Email me</button></a>
+      <a href="mailto:<%= theme.email_address %>"><button><%= theme.email_buttontext %></button></a>
     </div>
   </div>
 </section>

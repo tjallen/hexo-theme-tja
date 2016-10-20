@@ -7,9 +7,18 @@ menu:
 # Logo Image Source
 logo_src: /images/tja_logo.svg
 
+# index custom copy. edit these to change the copy
 heroslogan: I build effective, user-friendly web experiences
-
-intro: I'm Thom Allen, a freelance front-end developer based in London. I create responsive, efficient websites & web apps. I'm currently focusing on developing UI components for web apps with libraries like React and Vue.
+intro_title: Hello!
+intro_copy: I'm Thom Allen, a freelance front-end developer based in London. I create responsive, efficient websites & web apps. I'm currently focusing on developing UI components for web apps with libraries like React and Vue.
+posts_title: Work
+outro_title: Contact
+outro_copy: Interested in working together? Drop me an email below and I'll get back to you as soon as possible. Cheers!
+email_address: thomwork@gmail.com
+email_buttontext: Email me
+footer_copy: Built with the <a href="https://hexo.io/" title="Hexo">Hexo</a> blog framework and the <a href="https://github.com/tjallen/hexo-theme-tja" title="TJA hexo theme">hexo-theme-tja</a> theme. Company logos and imagery are © their respective owners.
+github_user: tjallen
+footer_github: true
 
 # Default post title
 default_post_title: Untitled
@@ -19,7 +28,6 @@ default_image_thumb: /images/blur-tilt.jpg
 
 # Default post cover index page (Optional)
 default_image_cover:
-  
 default_image_post:
 
 # Show Dates for posts and pages

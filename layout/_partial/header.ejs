@@ -2,7 +2,9 @@
   <div class="inner">
     <a href="<%- config.root %>" class="logo">
       <div class="logo-wrapper">
+        <% if (theme.logo_src) { %>
         <img src="<%- theme.logo_src %>" alt="<%-config.title %>" />
+        <% } %>
       </div>
     </a>
     <h1 class="title"><%-config.title || ""%></h1>
