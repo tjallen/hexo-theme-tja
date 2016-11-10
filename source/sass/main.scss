@@ -205,10 +205,15 @@ div.centeredbutton-wrap {
   text-align: center;
 }
 
-ul, ol, dl, li {
+ul, ol, dl {
   @include listreset;
-  list-style-type: none;
-  margin: 0 0 10px 0;
+  li {
+    list-style-type: none;
+    margin: 0 0 10px 0;
+    &:before {
+      content: "– "
+    }
+  }
   dd {
     @include listreset;
   }
