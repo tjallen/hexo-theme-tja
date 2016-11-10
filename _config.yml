@@ -16,7 +16,7 @@ outro_title: Contact
 outro_copy: Interested in working together? Drop me an email below and I'll get back to you as soon as possible. Cheers!
 email_address: thomwork@gmail.com
 email_buttontext: Email me
-footer_copy: Built with the <a href="https://hexo.io/" title="Hexo">Hexo</a> blog framework and the <a href="https://github.com/tjallen/hexo-theme-tja" title="TJA hexo theme">hexo-theme-tja</a> theme. Company logos and imagery are © their respective owners.
+footer_copy: Built with the <a href="https://hexo.io/" title="Hexo">Hexo</a> blog framework and the <a href="https://github.com/tjallen/hexo-theme-tja" title="TJA hexo theme">tja theme</a>. Company logos and imagery are © of their respective owners.
 github_user: tjallen
 footer_github: true
 
