@@ -69,7 +69,7 @@ $enable-transitions: true;
 $link: $md-indigo-a200;
 $linkhover: $md-indigo-a100;
 $link-fb: lighten($link,10%);
-$copy: #757575;
+$copy: #444;
 $bg: $md-grey-900;
 $overlay: rgba(33, 33, 33, 0.35);
 
@@ -239,7 +239,7 @@ p.note {
 }
 
 b, strong {
-  color: $md-grey-800;
+  color: $md-grey-900;
 }
 
 header {

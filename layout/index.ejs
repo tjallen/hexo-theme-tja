@@ -1,10 +1,18 @@
 <section id="intro">
   <div class="section-content">
-    <% if (theme.intro_title) { %>
-    <h2><%= theme.intro_title %></h2>
-    <% } %>
-    <% if (theme.intro_copy) { %>
-    <p><%- theme.intro_copy %></p>
+    <% if (theme.customintro === true) { %>
+      <% page.posts.forEach(function(item, index) { %>
+        <% if (item.title === "custom-intro") { %>
+          <%- item.content %>
+        <% } %>
+      <% }); %>
+    <% } else { %>
+      <% if (theme.intro_title) { %>
+      <h2><%= theme.intro_title %></h2>
+      <% } %>
+      <% if (theme.intro_copy) { %>
+      <p><%- theme.intro_copy %></p>
+      <% } %>
     <% } %>
   </div>
 </section>
@@ -16,7 +24,9 @@
     <% } %>
     <div class="gallery">
       <% page.posts.forEach(function(item, index){ %>
+        <% if (!item.custom) { %>
         <%- partial('_partial/article-index', {item: item, index: index}) %>
+        <% } %>
       <% }); %>
     <%- partial('_partial/pagination') %>
     </div>
