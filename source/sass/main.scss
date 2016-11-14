@@ -457,6 +457,15 @@ iframe {
   }
 }
 
+.img-post {
+  width: 100%;
+  height: auto;
+  @include mq('sm') {
+    max-width: 100%;
+    width: auto;
+  }
+}
+
 footer {
   text-align: center;
   padding: 20px;
