@@ -31,8 +31,8 @@
     <% if (theme.outro_copy) { %>
     <p><%= theme.outro_copy %></p>
     <% } %>
-    <div class="centeredbutton-wrap">
-      <a href="mailto:<%= theme.email_address %>"><button><%= theme.email_buttontext %></button></a>
-    </div>
+    <% if (theme.contactform) { %>
+      <%- partial('_partial/contactform') %>
+    <% } %>
   </div>
 </section>
