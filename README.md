@@ -22,7 +22,7 @@ Install required dependencies:
 
 ```
 cd <directory>
-npm install hexo-renderer-scss
+npm install --save hexo-renderer-scss
 ```
 
 Finally, enable the theme in your config.yml:
