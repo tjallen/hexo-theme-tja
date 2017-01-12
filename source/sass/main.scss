@@ -523,3 +523,19 @@ fieldset {
     }
   }
 }
+
+.pagination-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  .pagination {
+    float: left;
+    &:nth-of-type(2n) {
+      float: right;
+    }
+  }
+  .disabled {
+    display: none;
+  }
+}
