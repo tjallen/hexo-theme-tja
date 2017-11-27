@@ -191,12 +191,35 @@ button {
   width: 100%;
   @include box-shadow;
   &:hover {
-    @include box-shadow($horiz: 0px, $vert: 10px, $radius: 20px);
+    @include box-shadow($horiz: 0px, $vert: 10px, $radius: 10px);
   }
   @include mq(sm) {
     font-size: rem(14);
     width: auto;
     display: inline-block;
+  }
+  a {
+    color: #fff;
+    &:hover { color: #fff; }
+  }
+  svg.icon {
+    fill: #fff;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px 0 0;
+    &:hover { fill: #fff; }
+  }
+}
+
+.button-group {
+  display: block;
+  clear: both;
+  @include clearfix;
+  button {
+    clear: none;
+    position: relative;
+    float: left;
+    margin: 0 10px 20px 0;
   }
 }
 
